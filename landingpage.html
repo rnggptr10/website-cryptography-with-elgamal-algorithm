@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+<body>
+    <!-- Enkripsi -->
+    <form action="" method="POST">
+        <h3>Input Key Generation</h3>
+        <label for="p">P (Bilangan Prima)</label> <br>
+        <input type="number" name="p" id="p" required> <br>
+
+        <label for="g">G (Bilangan Acak, g < p)</label> <br>
+        <input type="number" name="g" id="g" required> <br>
+        
+        <label for="x">X (Bilangan Acak Untuk Private Key)</label> <br>
+        <input type="number" name="x" id="x" required> <br>
+        
+        <label for="k">K (Bilangan Acak)</label> <br>
+        <input type="number" name="k" id="k" required> <br>
+        
+        <h3>Input Plaintext</h3>
+        <label for="plaintext">Plaintext</label> <br>
+        <input type="text" name="plaintext" id="plaintext" required> <br>
+        
+        <label for="keypublic">Key Public</label>
+        <input type="number" readonly id="keypublic" name="keypublic">
+        <label for="c1">C1</label>
+        <input type="number" name="c1" id="c1" readonly>
+        
+        <input type="button" onclick="generateKey()">
+    </form>
+    <script src="elgamal.js"></script>
+</body>
+</html>
