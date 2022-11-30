@@ -1,4 +1,28 @@
-// For Generate Key
+// ===========================
+//          Variable
+// ===========================
+var c1 = BigInt;
+var publicKey = BigInt;
+var p;
+var g;
+var x;
+var k;
+var arr = [];
+var arrC2 = [];
+var label = document.getElementById("label").value;
+console.log(label);
+
+// ===========================
+//      Change Label
+// ===========================
+function changeLabel(){
+    console.log(label);
+}
+
+
+// ===========================
+//     For Generate Key
+// ===========================
 function isPrima(p){
     let div = 0;
     for(let i = 1; i <= p; i++){
@@ -39,42 +63,60 @@ function ruleofK(k,p){
 
 function generateKey(){
     // Get value from input
-    var p = document.getElementById("p").value;     // prima number
-    var g = document.getElementById("g").value;     // generator number
-    var x = document.getElementById("x").value;     // private key
-    var k = document.getElementById("k").value;     //
-
-    // Check p is prima or not
-    
-    
-    console.log("P : ",isPrima(p));
-    // var statG = g < p;
-    // console.log("G : ", g < p);
-    console.log("X : ", ruleofPrivateKey(x,p));
-    console.log("K : ", ruleofK(k,p));
-
-    // Calculate Public Key
-    if(isPrima(p) && ruleofPrivateKey(x,p) && ruleofK(k,p)){
-        var publicKey = (g**x)%p;
-    
-        // Calculate C1
-        var c1 = (g**k)%p;
-    
-        // Set value By Id
-        document.getElementById("keypublic").value = publicKey;
-        document.getElementById("c1").value = c1;
-    }else{
-        console.log('Key Tidak Sesuai Aturan')
-    }
+    p = document.getElementById("p").value;     // prima number
+    g = document.getElementById("g").value;     // generator number
+    x = document.getElementById("x").value;     // private key
+    k = document.getElementById("k").value;     //
 
 
+    // Calculate publicKey
+    publicKey = (g**x)%p;
+
+    // Calculate C1
+    c1 = (g**k)%p;
+
+    // Set value By Id
+    document.getElementById("keypublic").value = publicKey;
+    document.getElementById("c1").value = c1;
+    
+    // Test Encryption
+    encript();
 }
 
+// ===========================
+//         Encryption
+// ===========================
 function encript(){
     var plaintext = document.getElementById("plaintext").value;
-    
+    let lenghtPlaintext = plaintext.length;
+
+    // Change Char to Ascii Code
+    for(let i = 0; i < lenghtPlaintext; i++){
+        // mengubah char ke number ascii
+        console.log(plaintext[i]);
+        console.log(plaintext.charCodeAt(i)-97);
+        arr.push(plaintext.charCodeAt(i)-97);
+    }
+
+    // Test Console
+    console.log(arr);
+    console.log(c1);
+    console.log(publicKey);
+
+    // Calculate C2 from Plaintext at Array 'arr'
+    for(let i = 0; i < arr.length; i++){
+        arrC2.push(arr[i]*(publicKey**k)%p);
+    }
+
+    // Test Console 
+    console.log(arrC2);
+
+    document.getElementById("ciphertext").value = arrC2;
 }
 
+// ===========================
+//         Decryption
+// ===========================
 function decript(){
 
 }

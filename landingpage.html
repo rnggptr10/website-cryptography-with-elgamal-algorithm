@@ -11,9 +11,9 @@
 <body>
     <div class="container">
         <div class="row">
-            <select class="form-select" style="background-color: #C4C4C4; border-radius: 0;">
-                <option selected style="border-color:#C4C4C4;">Enkripsi Algoritma Elgamal</option>
-                <option>Dekripsi Algoritma Elgamal</option>
+            <select id="label" class="form-select" style="background-color: #C4C4C4; border-radius: 0;" onclick="changeLabel()">
+                <option selected style="border-color:#C4C4C4;" value="encryption">Enkripsi Algoritma Elgamal</option>
+                <option style="border-color:#C4C4C4;" value="decryption">Dekripsi Algoritma Elgamal</option>
               </select>
         </div>
         <div class="row" style="margin-top: 50px; margin-bottom: 20px;">
@@ -39,7 +39,8 @@
                     <input type="text" class="form-control" id="plaintext" required>
                 </div>
                 <div class="mb-3" style="text-align: center; margin-top: 35px;">
-                    <input type="button" class="btn btn-primary" onclick="generateKey()" style="background-color: #449D44;">
+                    <button type="button" class="btn btn-primary" onclick="generateKey()" style="background-color: #449D44;">Generate</button><br><br>
+                    <button type="button" class="btn btn-primary" onclick="" style="background-color: #449D44;">Clear</button>
                 </div>
             </form>
         </div>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Ciphertext</label>
-                    <input type="number" readonly class="form-control" id="c1" name="c1">
+                    <input type="array" readonly class="form-control" id="ciphertext" name="ciphertext">
                 </div>
             </form>
         </div>
