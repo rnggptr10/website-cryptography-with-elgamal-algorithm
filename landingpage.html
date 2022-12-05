@@ -34,13 +34,17 @@
                     <label for="x" class="form-label">Masukkan Nilai x (Bilangan Acak, 1 <= x <= p-1)</label>
                     <input type="number" class="form-control" id="x" required>
                 </div>
+                <div class="mb-3" id="c1_input" style="display: none;">
+                    <label for="c1_input" class="form-label">Masukkan Nilai C1</label>
+                    <input type="number" class="form-control" id="c1_input_dec" name="c1_input_dec" required>
+                </div>
                 <div class="mb-3">
-                    <label for="plaintext" class="form-label">Masukkan Plaintext</label>
+                    <label for="plaintext" class="form-label text-label" name="label_text">Masukkan Plaintext</label>
                     <input type="text" class="form-control" id="plaintext" required>
                 </div>
                 <div class="mb-3" style="text-align: center; margin-top: 35px;">
                     <button type="button" class="btn btn-primary" onclick="generateKey()" style="background-color: #449D44;">Generate</button><br><br>
-                    <button type="button" class="btn btn-primary" onclick="" style="background-color: #449D44;">Clear</button>
+                    <button type="button" class="btn btn-primary" onclick="clear()" style="background-color: #449D44;">Clear</button>
                 </div>
             </form>
         </div>
@@ -62,7 +66,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Ciphertext</label>
-                    <input type="array" readonly class="form-control" id="ciphertext" name="ciphertext">
+                    <div style="display: block;" id="ciphertext_number_get">
+                        <input type="array" readonly class="form-control" id="ciphertext_number" name="ciphertext_number">
+                    </div>
+                    <div style="display: block; margin-top: 20px;" id="ciphertext_number_get"></div>
+                        <input type="array" readonly class="form-control" id="ciphertext_alphabet" name="ciphertext_alphabet">
+                    </div>
                 </div>
             </form>
         </div>
