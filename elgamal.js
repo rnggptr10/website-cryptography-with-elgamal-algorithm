@@ -28,10 +28,19 @@ function changeLabel(){
 
     if(label == "encryption"){
         document.getElementById("c1_input").style.display = "none";
+        document.getElementById("plaintext-label").style.display = "block";
+        document.getElementById("ciphertext-label").style.display = "none";
         document.getElementById("ciphertext_number_get").style.display = "block";
-    }else{
+        document.getElementById("title-enc").style.display = "block";
+    } else{
         document.getElementById("c1_input").style.display = "block";
         document.getElementById("ciphertext_number_get").style.display = "none";
+        document.getElementById("ciphertext-label").style.display = "block";
+        document.getElementById("plaintext-label").style.display = "none";
+        document.getElementById("title-dec").style.display = "block";
+        document.getElementById("title-enc").style.display = "none";
+        document.getElementById("pt").style.display = "block";
+        document.getElementById("ct").style.display = "none";
     }
 }
 
@@ -255,6 +264,7 @@ function decript(){
 // ===========================
 //        Clear Input
 // ===========================
-function clear(){ 
-    
+function clearForm(){ 
+    document.getElementById("input").reset(); //gajadi soalnya tetep ke simpen yg sebelumnya
+    document.getElementById("output").reset();
 }

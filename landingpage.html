@@ -14,10 +14,10 @@
             <select id="label" class="form-select" style="background-color: #C4C4C4; border-radius: 0;" onclick="changeLabel()">
                 <option selected style="border-color:#C4C4C4;" value="encryption">Enkripsi Algoritma Elgamal</option>
                 <option style="border-color:#C4C4C4;" value="decryption">Dekripsi Algoritma Elgamal</option>
-              </select>
+            </select>
         </div>
         <div class="row" style="margin-top: 50px; margin-bottom: 20px;">
-            <form action="" method="POST">
+            <form id="input" action="" method="POST">
                 <div class="mb-3">
                     <label for="p" class="form-label">Masukkan Nilai p (Bilangan Prima)</label>
                     <input type="number" class="form-control" id="p" required>
@@ -38,24 +38,31 @@
                     <label for="c1_input" class="form-label">Masukkan Nilai C1</label>
                     <input type="number" class="form-control" id="c1_input_dec" name="c1_input_dec" required>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3" id="plaintext-label">
                     <label for="plaintext" class="form-label text-label" name="label_text">Masukkan Plaintext</label>
                     <input type="text" class="form-control" id="plaintext" required>
                 </div>
+                <div class="mb-3" style="display: none;" id="ciphertext-label">
+                    <label for="ciphertext" class="form-label text-label" name="label_text">Masukkan Ciphertext</label>
+                    <input type="text" class="form-control" id="ciphertext" required>
+                </div>
                 <div class="mb-3" style="text-align: center; margin-top: 35px;">
                     <button type="button" class="btn btn-primary" onclick="generateKey()" style="background-color: #449D44;">Generate</button><br><br>
-                    <button type="button" class="btn btn-primary" onclick="clear()" style="background-color: #449D44;">Clear</button>
+                    <button type="button" class="btn btn-primary" onclick="location.reload();" style="background-color: #449D44;">Clear</button>
                 </div>
             </form>
         </div>
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row" id="title-enc">
             <p style="padding: 0.375rem 2.25rem .375rem 0.75rem; background-color: #C4C4C4;">Hasil Enkripsi</p>
         </div>
+        <div class="row" id="title-dec" style="display: none;">
+            <p style="padding: 0.375rem 2.25rem .375rem 0.75rem; background-color: #C4C4C4;">Hasil Dekripsi</p>
+        </div>
         <div class="row" style="margin-top: 20px; margin-bottom: 20px;">
-            <form>
+            <form id="output">
                 <div class="mb-3">
                     <label for="keypublic" class="form-label">Public Key</label>
                     <input type="number" readonly class="form-control" id="keypublic" name="keypublic">
@@ -65,7 +72,12 @@
                     <input type="number" readonly class="form-control" id="c1" name="c1">
                 </div>
                 <div class="mb-3">
-                    <label for="" class="form-label">Ciphertext</label>
+                    <div id="ct">
+                        <label for="" class="form-label" >Ciphertext</label>
+                    </div>
+                    <div id="pt" style="display: none;">
+                        <label for="" class="form-label" >Plaintext</label>
+                    </div>
                     <div style="display: block;" id="ciphertext_number_get">
                         <input type="array" readonly class="form-control" id="ciphertext_number" name="ciphertext_number">
                     </div>
