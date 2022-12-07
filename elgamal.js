@@ -31,6 +31,7 @@ function changeLabel(){
         document.getElementById("plaintext-label").style.display = "block";
         document.getElementById("ciphertext-label").style.display = "none";
         document.getElementById("ciphertext_number_get").style.display = "block";
+        document.getElementById("title-dec").style.display = "none";
         document.getElementById("title-enc").style.display = "block";
     } else{
         document.getElementById("c1_input").style.display = "block";
@@ -103,7 +104,7 @@ function ruleofGenerator(g,p){
     if(g < p){
         return false;
     }else{
-        alert("G yang bernilai " + g + " harus lebih kecil dari P !");
+        alert("g yang bernilai " + g + " harus lebih kecil dari g !");
     }
 }
 
@@ -221,8 +222,10 @@ function encript(){
 //         Decryption
 // ===========================
 function decript(){
-    var ciphertext = document.getElementById("plaintext").value;
+    var ciphertext = document.getElementById("ciphertext-val").value;
     let lenghtCiphertext = ciphertext.length;
+
+    ciphertext = alphabetToLower(ciphertext);
 
     // Change Char to Ascii Code
     for(let i = 0; i < lenghtCiphertext; i++){

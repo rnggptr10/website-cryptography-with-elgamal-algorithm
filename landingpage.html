@@ -43,8 +43,8 @@
                     <input type="text" class="form-control" id="plaintext" required>
                 </div>
                 <div class="mb-3" style="display: none;" id="ciphertext-label">
-                    <label for="ciphertext" class="form-label text-label" name="label_text">Masukkan Ciphertext</label>
-                    <input type="text" class="form-control" id="ciphertext" required>
+                    <label for="ciphertext-val" class="form-label text-label" name="label_text">Masukkan Ciphertext</label>
+                    <input type="text" class="form-control" id="ciphertext-val" required>
                 </div>
                 <div class="mb-3" style="text-align: center; margin-top: 35px;">
                     <button type="button" class="btn btn-primary" onclick="generateKey()" style="background-color: #449D44;">Generate</button><br><br>
@@ -77,7 +77,7 @@
                     </div>
                     <div id="pt" style="display: none;">
                         <label for="" class="form-label" >Plaintext</label>
-                    </div>
+                    </div>               
                     <div style="display: block;" id="ciphertext_number_get">
                         <input type="array" readonly class="form-control" id="ciphertext_number" name="ciphertext_number">
                     </div>
